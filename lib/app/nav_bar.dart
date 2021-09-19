@@ -1,4 +1,4 @@
-import 'package:dog_app_provider/ui/dog/dog.dart';
+import 'package:dog_app_provider/ui/dog/dog_view.dart';
 import 'package:dog_app_provider/ui/login/login.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +17,6 @@ class BottomNavigationBarProvider with ChangeNotifier {
 
   List<Widget> screen = [
     const Login(),
-    const Dog(),
+    const DogView(),
   ];
 }
