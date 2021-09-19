@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:dog_app_provider/app/dog_provider.dart';
 import 'package:dog_app_provider/service/dog_service.dart';
 import 'package:dog_app_provider/service/entities/dog.dart';
+import 'package:dog_app_provider/ui/dog/widget/detail_dog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -43,11 +44,11 @@ class DogView extends StatelessWidget {
   Widget _buildDogItem(Dog dog, BuildContext context) {
     return InkWell(
       onTap: () {
-        // Navigator.of(context).push(
-        //   MaterialPageRoute(
-        //     builder: (context) => DetailDog(dog: dog),
-        //   ),
-        // );
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => DetailDog(dog: dog),
+          ),
+        );
       },
       child: Container(
         width: MediaQuery.of(context).size.width * 0.45,
