@@ -7,25 +7,26 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class DogView extends StatelessWidget {
-  const DogView({Key? key}) : super(key: key);
+  DogView({Key? key}) : super(key: key);
+  final DogProvider dogProvider = DogProvider(
+    dogService: DogService(
+      Dio(),
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<DogProvider>(
-      create: (_) => DogProvider(
-        dogService: DogService(
-          Dio(),
-        ),
-      ),
+      create: (_) {
+        dogProvider.getDog();
+        return dogProvider;
+      },
       child: Consumer<DogProvider>(
-        builder: (_, model, child) {
-          model.getDog();
-          return model.dogs.isNotEmpty
+        builder: (_, model, child) => model.dogs.isNotEmpty
             ? _buildDogList(model, context)
             : const Center(
                 child: CircularProgressIndicator(),
-              );
-        },
+              ),
       ),
     );
   }
@@ -51,7 +52,7 @@ class DogView extends StatelessWidget {
         );
       },
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.45,
+        width: MediaQuery.of(context).size.width * 0.40,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
         ),

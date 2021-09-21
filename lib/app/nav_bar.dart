@@ -17,6 +17,6 @@ class BottomNavigationBarProvider with ChangeNotifier {
 
   List<Widget> screen = [
     const Login(),
-    const DogView(),
+    DogView(),
   ];
 }
