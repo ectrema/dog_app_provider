@@ -1,3 +1,4 @@
+import 'package:dog_app_provider/service/entities/login_response.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart';
 
@@ -8,6 +9,6 @@ abstract class LoginService {
   factory LoginService(Dio dio, {String baseUrl}) = _LoginService;
 
   @POST("/login")
-  Future<dynamic> postLogin(
+  Future<LoginResponse> postLogin(
       @Field('email') String email, @Field('password') String password);
 }

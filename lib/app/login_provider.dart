@@ -11,7 +11,7 @@ class LoginProvider with ChangeNotifier {
 
   Future<void> login() async {
     var temp = await loginService.postLogin(_email, _password);
-    token = temp['token'];
+    token = temp.token;
     notifyListeners();
   }
 
