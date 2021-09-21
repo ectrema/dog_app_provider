@@ -16,7 +16,7 @@ class BottomNavigationBarProvider with ChangeNotifier {
   Widget get currentScreen => screen[currentIndex];
 
   List<Widget> screen = [
-    const Login(),
+    Login(),
     DogView(),
   ];
 }
