@@ -32,11 +32,13 @@ class DogView extends StatelessWidget {
   }
 
   Widget _buildDogList(DogProvider model, BuildContext context) {
-    return SingleChildScrollView(
-      child: Wrap(
-        children: List.generate(
-          model.dogs.length,
-          (index) => _buildDogItem(model.dogs[index], context),
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Wrap(
+          children: List.generate(
+            model.dogs.length,
+            (index) => _buildDogItem(model.dogs[index], context),
+          ),
         ),
       ),
     );
